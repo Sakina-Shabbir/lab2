@@ -46,4 +46,5 @@ function moveBear(e) {
     if (e.keyCode == KEYDOWN) { 
         bear.move(0, 1) 
     }  
+    
 }
