@@ -43,6 +43,8 @@ function start() {
     makeBees();
     //take start time 
     lastStingTime = new Date();
+    // Add an event listener to the bear speed event
+    document.getElementById("speedBear").addEventListener("change",setspeed);
 }
 
 // Handle keyboad events 
@@ -69,6 +71,11 @@ function moveBear(e) {
     if (e.keyCode == KEYDOWN) { 
         bear.move(0, 1) 
     }  
+}
+
+function setspeed(){
+    bear.dBear=parseInt(document.getElementById("speedBear").value);
+    console.log("Bear speed is: " +  this.dBear);
 }
 
 class Bee {
