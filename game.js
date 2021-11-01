@@ -73,9 +73,8 @@ function moveBear(e) {
     }  
 }
 
-function setspeed(){
-    bear.dBear=parseInt(document.getElementById("speedBear").value);
-    console.log("Bear speed is: " +  this.dBear);
+function setSpeedBear(){
+    bear.dBear = parseInt(document.getElementById("speedBear").value);
 }
 
 class Bee {
@@ -122,6 +121,10 @@ class Bee {
                 this.y = h - ih;
         }; 
     } 
+}
+
+function getRandomInt(max) {
+    return Math.floor((Math.random()) * max);
 }
 
 function createBeeImg(wNum) { 
@@ -185,7 +188,7 @@ function updateBees() { // update loop for game
     //move the bees randomly 
     moveBees(); 
     //use a fixed update period 
-    let period = 10;//modify this to control refresh period 
+    let period = document.getElementById("periodTimer").value;//modify this to control refresh period 
     //update the timer for the next move 
     updateTimer = setTimeout('updateBees()', period); 
 }
