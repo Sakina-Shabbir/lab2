@@ -1,6 +1,6 @@
 function Bear() { 
-    this.dBear = 100; 
-    this.htmlElement = document.getElementById("bear"); 
+    this.dBear = 100; // length of the step of the bear
+    this.htmlElement = document.getElementById("bear");  // bear image 
     this.id = this.htmlElement.id; 
     this.x = this.htmlElement.offsetLeft; 
     this.y = this.htmlElement.offsetTop; 
@@ -26,10 +26,18 @@ function Bear() {
         let t = parent.offsetTop;
         let w = parent.offsetWidth;
         let h = parent.offsetHeight;
-        if (this.x < 0) this.x = 0;
-        if (this.x > w - iw) this.x = w - iw;
-        if (this.y < 0) this.y = 0;
-        if (this.y > h - ih) this.y = h - ih;
+        if (this.x < 0) {
+            this.x = 0;
+        } 
+        if (this.x > w - iw) {
+            this.x = w - iw;
+        }
+        if (this.y < 0) {
+            this.y = 0;
+        }
+        if (this.y > h - ih) {
+            this.y = h - ih;
+        }
     };
 }
 function start() { 
@@ -41,12 +49,11 @@ function start() {
     bees = new Array(); 
     //create bees 
     makeBees();
-    // move the bees around with the specified speed
     updateBees();
     //take start time 
     lastStingTime = new Date();
     // Add an event listener to the bear speed event
-    document.getElementById("speedBear").addEventListener("change",setSpeed);
+    document.addEventListener("change",setSpeed);
 }
 
 function restart() {
@@ -63,7 +70,7 @@ function restart() {
 function moveBear(e) { 
     if (start != true) {
         start = true;
-        lastStingTime = new Date(); //take start time
+        lastStingTime = new Date(); 
     }
 
     //codes of the four keys 
@@ -189,12 +196,12 @@ function makeBees() {
 }
 
 function addBee() {
-    let nbBees = document.getElementById("nbBees").value; //Get the number of bees specified by the user
-    nbBees = Number(nbBees); //Convert the content of the input to a number
+    let nbBees = document.getElementById("nbBees").value; 
+    nbBees = Number(nbBees); 
     nbBees++;
-    var bee = new Bee(nbBees); //Create a bee
-    bee.display(); //Display the bee on screen
-    bees.push(bee); //Add the bee to the bees array
+    var bee = new Bee(nbBees);
+    bee.display(); 
+    bees.push(bee); 
 }
 
 function removeBees() {
@@ -220,7 +227,7 @@ function updateBees() { // update loop for game
     //use a fixed update period 
     let period = document.getElementById("periodTimer").value;//modify this to control refresh period 
     //update the timer for the next move 
-    
+
     let score = hits.innerHTML;
     if (Number(score) < 1000) {
         updateTimer = setTimeout('updateBees()', period); //Update the bees movement after the specified interval
