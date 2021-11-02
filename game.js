@@ -53,7 +53,7 @@ function start() {
     //take start time 
     lastStingTime = new Date();
     // Add an event listener to the bear speed event
-    document.addEventListener("change",setSpeed);
+    document.getElementById("speedBear").addEventListener("change",setSpeed);
 }
 
 function restart() {
@@ -61,7 +61,6 @@ function restart() {
     hits.innerHTML = score;
     duration.innerHTML = 0;
     updateTimer = clearTimeout();
-    removeBees();
     start();
 }
 
@@ -202,11 +201,6 @@ function addBee() {
     var bee = new Bee(nbBees);
     bee.display(); 
     bees.push(bee); 
-}
-
-function removeBees() {
-    beesArray = document.getElementsByClassName("bee");
-    beesArray.forEach(e => e.remove());
 }
 
 function moveBees() { 
